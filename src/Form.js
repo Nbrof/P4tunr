@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 const Form = (props) => {
-
+console.log("Testing", props)
   // create a state to hold form data
   const [formData, setFormData] = useState(props.song)
 

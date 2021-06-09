@@ -4,6 +4,7 @@ import "./Playlist.css"
 // playlist addFaveSong
 
 const myPlaylist = (props) => {
+    console.log("playlist", props)
     const {playlist, addFaveSong} = props
 
     const loaded = () => (

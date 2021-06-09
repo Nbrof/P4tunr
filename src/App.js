@@ -6,7 +6,7 @@ import Playlist from './Playlist'
 
 function App() {
 
-  const url = 'https://687og57fe0.execute-api.us-east-2.amazonaws.com/dev/tunr/'
+  const url = 'https://687og57fe0.execute-api.us-east-2.amazonaws.com/dev/tunr'
 
   const [playlist, setPlaylist] = useState([]);
 
@@ -22,7 +22,8 @@ function App() {
     fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
-      setPlaylist(data)
+      console.log("getsong", data)
+      setPlaylist(data.body)
     })
   }
 
@@ -33,6 +34,7 @@ function App() {
   }
 
   const handleSubmit = (newSong) => {
+    console.log('New song consolelog ', newSong)
     fetch(url, {
       method: 'post',
       headers: {
