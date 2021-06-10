@@ -6,7 +6,7 @@ import Playlist from './Playlist'
 
 function App() {
 
-  const url = 'https://687og57fe0.execute-api.us-east-2.amazonaws.com/dev/tunr'
+  const url = 'https://687og57fe0.execute-api.us-east-2.amazonaws.com/dev/tunr/'
 
   const [playlist, setPlaylist] = useState([]);
 
@@ -45,6 +45,12 @@ function App() {
     .then(() => getSongs())
   }
 
+  const handleDelete = (song) => {
+    fetch(url + song.tunrId, {
+      method: 'delete'
+    })
+    .then(()  => getSongs())
+  }
 
   return (
     <div className="App">
@@ -52,7 +58,7 @@ function App() {
       <br></br>
       <h3>FOR ALL YOU PLAYLIST NEEDS</h3>
       <hr className="red-line"></hr>
-      <Playlist playlist={playlist}  addFaveSong={addFaveSong}/>
+      <Playlist playlist={playlist}  addFaveSong={addFaveSong} handleDelete={handleDelete} />
       <Favorite faveSong={faveSong}/>
       <Form song={emptySong} handleSubmit={handleSubmit}/>
     </div>

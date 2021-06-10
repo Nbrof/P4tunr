@@ -5,7 +5,7 @@ import "./Playlist.css"
 
 const myPlaylist = (props) => {
     console.log("playlist", props)
-    const {playlist, addFaveSong} = props
+    const {playlist, addFaveSong, handleDelete} = props
 
     const loaded = () => (
         <div>
@@ -20,6 +20,7 @@ const myPlaylist = (props) => {
                 >
                     &#9825;
                 </button>
+                <button onClick={() => handleDelete(song)}>Delete Song</button>
             </div>
         ))}
         </div>
